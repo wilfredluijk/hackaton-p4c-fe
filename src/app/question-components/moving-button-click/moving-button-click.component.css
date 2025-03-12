@@ -1,0 +1,12 @@
+button {
+  position: absolute;
+  display: block;
+}
+
+mat-card-content {
+  height: 60vh;
+}
+
+mat-card-header {
+  padding-bottom: 1rem;
+}

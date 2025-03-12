@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* button.component.css */
+.pulsating-button {
+  background-color: rgba(255, 87, 34, 0.8); /* Initial color (20% transparent) */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  animation: buttonPulse 1.5s infinite, buttonColorChange 1.5s infinite; /* Pulsate in size and color */
+  box-shadow: 0 0 10px rgba(255, 87, 34, 0.7); /* Initial glow */
+}
+
+/* Button hover effect (optional) */
+.pulsating-button:hover {
+  background-color: rgba(255, 87, 34, 1); /* Full opacity on hover */
+  box-shadow: 0 0 20px rgba(255, 87, 34, 1); /* Stronger glow on hover */
+}
+
+/* Pulsating size animation */
+@keyframes buttonPulse {
+  0% {
+    transform: scale(1); /* Normal size */
+    box-shadow: 0 0 5px rgba(255, 87, 34, 0.7); /* Regular glow */
+  }
+  50% {
+    transform: scale(1.02); /* Slight increase in size */
+    box-shadow: 0 0 10px rgba(255, 87, 34, 1); /* Stronger glow */
+  }
+  100% {
+    transform: scale(1); /* Back to normal size */
+    box-shadow: 0 0 5px rgba(255, 87, 34, 0.7); /* Reset glow */
+  }
+}
+
+/* Color change animation */
+@keyframes buttonColorChange {
+  0% {
+    background-color: rgba(255, 87, 34, 0.8); /* Transparent orange */
+  }
+  50% {
+    background-color: rgba(255, 152, 0, 0.8); /* Lighter transparent orange */
+  }
+  100% {
+    background-color: rgba(255, 87, 34, 0.8); /* Back to initial transparent color */
+  }
+}
+
+/* Button style when clicked/complete */
+.pulsating-button.complete {
+  background-color: rgba(76, 175, 80, 0.8); /* Green color with 20% transparency */
+  box-shadow: 0 0 25px rgba(76, 175, 80, 1); /* Strong green glow */
+  animation: buttonPulseComplete 1.5s infinite, buttonColorChangeComplete 1.5s infinite;
+}
+
+/* Pulsating animation for complete state */
+@keyframes buttonPulseComplete {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8); /* Transparent green glow */
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(76, 175, 80, 1); /* Stronger green glow */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.8); /* Reset glow */
+  }
+}
+
+/* Color animation for complete state */
+@keyframes buttonColorChangeComplete {
+  0% {
+    background-color: rgba(76, 175, 80, 0.8); /* Transparent green */
+  }
+  50% {
+    background-color: rgba(139, 195, 74, 0.8); /* Lighter green */
+  }
+  100% {
+    background-color: rgba(76, 175, 80, 0.8); /* Back to initial transparent green */
+  }
+}
+
+

@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <!-- Header -->
+  <div class="text-center mb-5">
+    <h1>Quiz Summary</h1>
+  </div>
+
+  <!-- Score Summary -->
+  <div class="card">
+    <div class="card-header">
+      Score Details
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Total Score:</strong> <span
+        class="badge bg-primary rounded-pill">{{ summary?.score }}</span></li>
+      <li class="list-group-item"><strong>Correct Answers:</strong> <span
+        class="badge bg-success rounded-pill">{{ summary?.correctQuestions }}</span></li>
+      <li class="list-group-item"><strong>Total Time:</strong> <span
+        class="badge bg-info text-dark rounded-pill">{{ (summary?.timeInMillis ?? 0) / 1000 }}</span></li>
+      <li class="list-group-item"><strong>Id</strong> <span
+        class="badge bg-info text-dark rounded-pill">{{ summary?.contestantId }}</span></li>
+    </ul>
+  </div>
+</div>
+

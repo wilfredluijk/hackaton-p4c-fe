@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <mat-card appearance="outlined" class="example-card">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{question?.question}} {{ getFirstValue(question?.answerOptions) }} Total: {{ getTotalSum()}}</mat-card-title>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+      <br>
+          <div class="row">
+            <div class="col-6">
+              <mat-slide-toggle [(ngModel)]="radio1">34</mat-slide-toggle>
+            </div>
+            <div class="col-6">
+              <mat-slide-toggle [(ngModel)]="radio2">22</mat-slide-toggle>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <mat-slide-toggle [(ngModel)]="radio3" >55</mat-slide-toggle>
+            </div>
+            <div class="col-6">
+              <mat-slide-toggle [(ngModel)]="radio4" >89</mat-slide-toggle>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <mat-slide-toggle [(ngModel)]="radio5" >46</mat-slide-toggle>
+            </div>
+            <div class="col-6">
+              <mat-slide-toggle [(ngModel)]="radio6">88</mat-slide-toggle>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">
+              <mat-slide-toggle [(ngModel)]="radio7">29</mat-slide-toggle>
+            </div>
+            <div class="col-6">
+              <mat-slide-toggle [(ngModel)]="radio8" >5</mat-slide-toggle>
+            </div>
+          </div>
+
+        <br>
+        </mat-card-content>
+
+        <mat-card-footer>
+          <button class="pulsating-button" (click)="submit()">Submit</button>
+        </mat-card-footer>
+      </mat-card>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+
+
+<div class="game-view disable-dbl-tap-zoom">
+
+  <h1>Score {{ score }} / {{ targetScore }} </h1>
+  <div class="tetris-view">
+    <div class="tetris-row" *ngFor="let row of gameScreen">
+      <div class="tetris-block" [ngClass]="'filled-' + block.filled" *ngFor="let block of row"></div>
+    </div>
+  </div>
+  <div class="action-bar">
+    <button (click)="handleArrowKeys('ArrowLeft')" id="left">left</button>
+    <button (click)="handleArrowKeys('ArrowUp')" id="up">rotate</button>
+    <button (click)="handleArrowKeys('ArrowDown')" id="down">down</button>
+    <button (click)="handleArrowKeys('ArrowRight')" id="right">right</button>
+  </div>
+</div>

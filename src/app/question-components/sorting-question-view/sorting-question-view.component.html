@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+        <div class="col-md-12">
+
+          <mat-card appearance="outlined" class="example-card">
+            <mat-card-header>
+              <mat-card-title-group>
+                <mat-card-title>{{question?.question}}</mat-card-title>
+                <mat-card-subtitle>Hint: drag and drop to sort</mat-card-subtitle>
+              </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+
+              <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let answer of question?.answerOptions" cdkDrag>{{answer}}</div>
+              </div>
+
+            </mat-card-content>
+            <mat-card-footer>
+              <button class="pulsating-button" (click)="submit()">Submit</button>
+            </mat-card-footer>
+          </mat-card>
+
+        </div>
+    </div>
+</div>

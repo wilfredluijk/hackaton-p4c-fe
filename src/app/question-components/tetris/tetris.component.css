@@ -1,0 +1,117 @@
+.disable-dbl-tap-zoom {
+  touch-action: manipulation;
+}
+
+body {
+  background-color: #151a30;
+  font-family: 'B612', sans-serif;
+}
+.score-view{
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.score-box, .level-box, .preview-box {
+  border: 2px solid #dfd9e8;
+  padding: 10px;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  color: #dfd9e8;
+  border-radius: 25px;
+}
+
+.preview-box {
+  height: 100px;
+  align-content: center;
+}
+
+#pause, #restart {
+  margin: 1rem;
+  font-size: 30px;
+  background-color: #384268;
+  color: #dfd9e8;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.game-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.action-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tetris-view {
+  display: flex;
+  flex-direction: column;
+  align-content: start;
+  width: 400px;
+  min-width: 400px;
+  max-width: 600px;
+}
+
+.tetris-row {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.filled-0 {
+  /*background: #384268;*/
+}
+
+.filled-1 {
+  background: linear-gradient(#48f957 0%, #20b62c 60%, #043e09 100%);
+}
+
+.filled-2 {
+  /*background: #ff1203;*/
+  background: linear-gradient(#f06060 0%, #a30505 60%, #4d0202 100%);
+}
+
+.filled-3 {
+  background: linear-gradient(#fda703 0%, #c17e02 60%, #3b2803 100%);
+}
+
+.filled-4 {
+  background: linear-gradient(#ef7afa 0%, #8d1199 60%, #3a073e 100%);
+}
+
+.filled-5 {
+  background: linear-gradient(#fbfcfc 0%, #919393 60%, #393838 100%);
+}
+
+.filled-6 {
+  background: linear-gradient(#04bcff 0%, #037099 60%, #013b50 100%);
+}
+
+.filled-7 {
+  background: linear-gradient(#ff006e 0%, #950242 60%, #530124 100%);
+}
+
+.filled-8 {
+  background: linear-gradient(#f86b0a 0%, #933d01 60%, #572401 100%);
+}
+
+.tetris-block {
+  height: 20px;
+  width: 20px;
+  border: solid 2px #dfd9e8;
+  z-index: 1;
+}
+
+button {
+  width: 5rem;
+  height: 4rem;
+  padding-left: 0.5rem;
+}

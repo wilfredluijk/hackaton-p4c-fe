@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{question?.question}}</mat-card-title>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content #container>
+          <button #button class="pulsating-button" (click)="changePos()">Count</button>
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </div>
+</div>

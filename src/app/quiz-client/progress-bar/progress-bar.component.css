@@ -1,0 +1,81 @@
+/* progress-bar.component.css */
+.progress-container {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  background: rgba(255, 87, 34, 0.8); /* Transparent orange */
+  transition: width 0.5s ease, background 0.3s ease; /* Smooth width and color change */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 87, 34, 0.8); /* Initial glow with 20% transparency */
+  animation: pulse 1.5s infinite, colorChange 1.5s infinite; /* Combine pulse and color animations */
+}
+
+/* Stronger pulse animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Larger scale for the pulse effect */
+    box-shadow: 0 0 25px rgba(255, 87, 34, 1); /* Full opacity glow at peak */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.8); /* Reset to transparent glow */
+  }
+}
+
+/* Color animation with transparency */
+@keyframes colorChange {
+  0% {
+    background: rgba(255, 87, 34, 0.8); /* 20% transparent */
+  }
+  50% {
+    background: rgba(255, 152, 0, 0.8); /* Lighter orange, still 20% transparent */
+  }
+  100% {
+    background: rgba(255, 87, 34, 0.8); /* Back to initial color with transparency */
+  }
+}
+
+/* Optional: Complete state with color pulse and stronger glow */
+.progress-bar.complete {
+  background-color: rgba(76, 175, 80, 0.8); /* Green with 20% transparency when complete */
+  box-shadow: 0 0 30px rgba(76, 175, 80, 1); /* Stronger glow */
+  animation: pulse-complete 1.5s infinite, colorChangeComplete 1.5s infinite;
+}
+
+@keyframes pulse-complete {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 35px rgba(76, 175, 80, 1); /* Stronger glow at peak */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.8); /* Return to 20% transparency */
+  }
+}
+
+/* Color animation for complete state */
+@keyframes colorChangeComplete {
+  0% {
+    background-color: rgba(76, 175, 80, 0.8); /* Green with 20% transparency */
+  }
+  50% {
+    background-color: rgba(139, 195, 74, 0.8); /* Lighter green with transparency */
+  }
+  100% {
+    background-color: rgba(76, 175, 80, 0.8); /* Return to original green */
+  }
+}

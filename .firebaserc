@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "image-rec-profit4cloud-test"
+  },
+  "targets": {
+    "image-rec-profit4cloud-test": {
+      "hosting": {
+        "quiz-game": [
+          "image-rec-profit4cloud-test"
+        ]
+      }
+    }
+  }
+}

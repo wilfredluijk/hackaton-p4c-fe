@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row justify-content-center text-center">
+    <img src="/assets/P4C.png" alt="logo" class="img-fluid mb-3">
+    <h1>How Java are you today?</h1>
+  </div>
+  <div class="row console-page">
+    <div class="col-lg-6 col-md-12 mb-4">
+      <h1 class="mat-display-1 text-color-change"><strong>Currently Playing</strong></h1>
+      <mat-card (mouseenter)="showChild(update)" (mouseleave)="hideChild(update)" appearance="outlined"
+                class="mat-elevation-z3 mb-3 hover-parent" *ngFor="let update of contestantUpdate">
+        <mat-card-header>
+          <mat-card-title>{{ update?.contestant?.name }}</mat-card-title>
+          <mat-card-actions *ngIf="!childVisible(update)">
+            <button (click)="removeContestant(update)" mat-mini-fab color="warn">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card-header>
+        <mat-card-content>
+          <table class="table table-borderless">
+            <tbody>
+            <tr [@listAnimation]>
+              <td *ngFor="let questionId of update?.questionIds">
+                <div class="d-flex align-items-center">
+                  <mat-icon
+                    *ngIf="hasAnsweredQuestion(questionId, update?.answeredQuestions)"
+                    [ngClass]="{
+                        'text-success': questionCorrect(questionId, update?.answeredQuestions),
+                        'text-danger': !questionCorrect(questionId, update?.answeredQuestions)
+                      }"
+                  >
+                    {{ questionCorrect(questionId, update?.answeredQuestions) ? 'check_circle' : 'cancel' }}
+                  </mat-icon>
+                  <span class="ml-2">
+                      {{ hasAnsweredQuestion(questionId, update?.answeredQuestions) ? getScore(questionId, update?.answeredQuestions) : '-' }}
+                    </span>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <h1 class="mat-display-1 text-color-change"><strong>Leaderboard</strong></h1>
+      <mat-card class="mat-elevation-z3">
+        <app-leaderboard></app-leaderboard>
+      </mat-card>
+    </div>
+  </div>
+</div>

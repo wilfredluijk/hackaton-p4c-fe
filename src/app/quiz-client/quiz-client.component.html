@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <div class="col content-window ">
+      <ng-container *ngIf="state === 'DISCONNECTED'">
+        <div class="row content-row">
+          <mat-form-field class="example-form-field">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" [(ngModel)]="name">
+            <button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=undefined">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="row content-row">
+          <button mat-raised-button color="primary" (click)="confirmName()" [disabled]="name == null || name === ''">
+            Connect
+          </button>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="state === 'CONNECTED'">
+        <img src="/assets/P4C.png" alt="logo">
+        <p>This quiz tests your knowledge and other skills</p>
+        <p>Answering fast is rewarded, you score points based on the time it takes to submit an answer</p>
+        <p>Good Luck!</p>
+
+        <button class="start-button" mat-raised-button color="primary" (click)="startGame()">
+          START!
+        </button>
+      </ng-container>
+
+
+      <ng-container *ngIf="state === 'STARTED'">
+        <app-progress-bar [progress]="progress"></app-progress-bar>
+
+        <div class="question-component-view">
+          <ng-container [ngSwitch]="activeQuestion?.questionType">
+            <app-sorting-question-view *ngSwitchCase="'sorting'" [question]="activeQuestion"
+                                       (answerSubmitted)="answerSubmitted($event)"></app-sorting-question-view>
+            <ng-container *ngSwitchCase="'single-choice'">
+              <app-single-answer [question]="activeQuestion"
+                                 (answerSubmitted)="answerSubmitted($event)"></app-single-answer>
+            </ng-container>
+            <ng-container *ngSwitchCase="'slider'">
+              <app-slider-select [question]="activeQuestion"
+                                 (answerSubmitted)="answerSubmitted($event)"></app-slider-select>
+            </ng-container>
+            <ng-container *ngSwitchCase="'click-count'">
+              <app-moving-button-click [question]="activeQuestion"
+                                       (answerSubmitted)="answerSubmitted($event)"></app-moving-button-click>
+            </ng-container>
+            <ng-container *ngSwitchCase="'object-recognition'">
+              <app-object-recognition [question]="activeQuestion"
+                                      (answerSubmitted)="answerSubmitted($event)"></app-object-recognition>
+            </ng-container>
+            <ng-container *ngSwitchCase="'tetris'">
+              <app-tetris [question]="activeQuestion"
+                          (answerSubmitted)="answerSubmitted($event)"></app-tetris>
+            </ng-container>
+            <ng-container *ngSwitchCase="'code'">
+              <app-code-view [question]="activeQuestion"
+                          (answerSubmitted)="answerSubmitted($event)"></app-code-view>
+            </ng-container>
+            <ng-container *ngSwitchCase="'sum-total'">
+              <app-sum-total [question]="activeQuestion"
+                             (answerSubmitted)="answerSubmitted($event)"></app-sum-total>
+            </ng-container>
+          </ng-container>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="state === 'FINISHED'">
+        <app-quiz-summary [summary]="summary"></app-quiz-summary>
+      </ng-container>
+    </div>
+  </div>
+</div>

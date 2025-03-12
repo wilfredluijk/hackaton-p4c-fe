@@ -1,0 +1,11 @@
+mat-card-footer {
+  margin: 1rem;
+}
+
+mat-card-header {
+  padding-bottom: 1rem;
+}
+
+mat-button-toggle-group {
+  width: 70vw;
+}

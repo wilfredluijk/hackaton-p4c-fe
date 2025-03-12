@@ -1,0 +1,56 @@
+.content-window {
+  height: 80vh;
+  margin-top: 10vh;
+}
+
+.content-row {
+  max-width: 15rem;
+  padding-left: 5rem;
+}
+
+.start-button {
+  margin-left: 5rem;
+}
+
+:host ::ng-deep mat-progress-bar {
+  height: 10px;
+}
+
+:host ::ng-deep mat-progress-bar .mdc-linear-progress__bar-inner {
+  border-top-width: 10px;
+}
+
+.question-component-view {
+  padding-top: 0.5rem;
+}
+
+img {
+  height: 100px
+}
+
+:host ::ng-deep .mat-progress-bar-fill {
+  background: linear-gradient(90deg, #ff5722, #ff9800); /* Use vibrant colors */
+  transition: background 0.3s ease;
+}
+
+:host ::ng-deep .mat-progress-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.3) 10px,
+    rgba(255, 255, 255, 0.1) 10px,
+    rgba(255, 255, 255, 0.1) 20px
+  );
+  animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

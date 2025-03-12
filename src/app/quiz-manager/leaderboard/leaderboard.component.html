@@ -1,0 +1,35 @@
+<div class="leaderboard">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>
+        name
+      </th>
+      <th>
+        questions correct/total
+      </th>
+      <th>
+        score
+      </th>
+      <th>
+        id
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let entry of leaderboardEntries">
+      <td>{{entry.name}}</td>
+      <td> {{entry.correctQuestions}} / {{entry.totalQuestions}}</td>
+      <td>{{entry.score}}</td>
+      <td>{{entry.contestantId}}</td>
+      <td>
+        <button (click)="removeEntry(entry)" mat-button color="primary">
+          <mat-icon>close</mat-icon>
+        </button>
+      </td>
+    </tr>
+<!--    <button mat-raised-button color="primary" (click)="clearLeaderboard()">clear</button>-->
+    </tbody>
+  </table>
+</div>
+
